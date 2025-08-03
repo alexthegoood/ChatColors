@@ -25,13 +25,10 @@ subprojects {
     apply(plugin = "xyz.jpenilla.resource-factory-paper-convention")
     apply(plugin = "com.gradleup.shadow")
 
-    dependencies { compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT") }
     repositories { maven("https://repo.papermc.io/repository/maven-public/") }
+    dependencies { compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT") }
 
-    tasks {
-        compileJava { options.release = javaVersion }
-        javadoc { options.encoding = Charsets.UTF_8.name() }
-    }
+    tasks.compileJava { options.release = javaVersion }
 }
 
 tasks.jar { enabled = false }

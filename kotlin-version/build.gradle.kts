@@ -18,13 +18,12 @@ plugins { kotlin("jvm").version("2.2.0") }
 
 val pluginName = "${rootProject.name}-kotlin"
 
-tasks.jar {
-    archiveBaseName = pluginName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
-}
-tasks.shadowJar {
-    archiveBaseName = pluginName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+tasks {
+    withType<Jar> {
+        archiveBaseName = pluginName
+        destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+    }
+    shadowJar { minimize() }
 }
 
 paperPluginYaml {

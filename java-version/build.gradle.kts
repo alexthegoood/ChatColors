@@ -16,14 +16,12 @@ import xyz.jpenilla.resourcefactory.bukkit.Permission
 
 val pluginName = "${rootProject.name}-java"
 
-tasks.jar {
-    archiveBaseName = pluginName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
-}
-
-tasks.shadowJar {
-    archiveBaseName = pluginName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+tasks {
+    jar {
+        archiveBaseName = pluginName
+        destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+    }
+    shadowJar { dependsOn("jar") }
 }
 
 paperPluginYaml {
