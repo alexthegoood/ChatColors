@@ -1,4 +1,11 @@
 package org.atg.chatColors
 
-class ChatColors {
+import org.bukkit.plugin.java.JavaPlugin
+
+class ChatColors : JavaPlugin() {
+
+    override fun onEnable() {
+        server.pluginManager.registerEvents(ChatListener(), this)
+    }
+
 }
