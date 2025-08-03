@@ -38,7 +38,7 @@ public class ChatListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onChat(AsyncChatEvent event) {
         Player player = event.getPlayer();
-        if(player.hasPermission("chatcolor.colored")) {
+        if(player.hasPermission("chatcolors.colored")) {
 
             Component message = event.message();
             String legacyMessage = COMPONENT_SERIALIZER.serialize(message);
