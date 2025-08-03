@@ -19,7 +19,7 @@ val pluginName = "${rootProject.name}-java"
 tasks {
     jar {
         archiveBaseName = pluginName
-        destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+        destinationDirectory = rootProject.layout.buildDirectory.dir("libs")
     }
     shadowJar { dependsOn("jar") }
 }
