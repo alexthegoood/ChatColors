@@ -14,9 +14,21 @@
 
 import xyz.jpenilla.resourcefactory.bukkit.Permission
 
-plugins { `kotlin-dsl` }
+plugins { kotlin("jvm").version("2.2.0") }
+
+val pluginName = "${rootProject.name}-kotlin"
+
+tasks.jar {
+    archiveBaseName = pluginName
+    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+}
+tasks.shadowJar {
+    archiveBaseName = pluginName
+    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
+}
 
 paperPluginYaml {
+    name = pluginName
     main = "org.atg.chatColors.ChatColors"
     author = "AlexTheGood"
     apiVersion = "1.21.8"
@@ -27,14 +39,4 @@ paperPluginYaml {
             default = Permission.Default.OP
         }
     }
-}
-
-val archiveName = "${rootProject.name}-kotlin"
-tasks.jar {
-    archiveBaseName = archiveName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
-}
-tasks.shadowJar {
-    archiveBaseName = archiveName
-    destinationDirectory.set(rootProject.layout.buildDirectory.dir("libs"))
 }
