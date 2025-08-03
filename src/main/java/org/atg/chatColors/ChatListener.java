@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 
 public class ChatListener implements Listener {
 
-    private static final Pattern COLORS_PATTERN = Pattern.compile("[&§][0-9a-fk-or]");
+    private static final Pattern COLORS_PATTERN = Pattern.compile("[&§][0-9a-fk-or]|&#([0-9a-fA-F]{6})");
 
     private static final LegacyComponentSerializer COMPONENT_SERIALIZER = LegacyComponentSerializer.builder()
             .character('&')

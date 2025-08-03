@@ -20,7 +20,7 @@ paperPluginYaml {
     main = "org.atg.chatColors.ChatColors"
     author = "AlexTheGood"
     apiVersion = "1.21.8"
-    version = "1.0"
+    version = "1.1"
     permissions {
         register("chatcolors.colored") {
             description = "allows colors in chat"
